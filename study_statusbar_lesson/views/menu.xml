@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_statusbar_lesson_root" name="Statusbar Lesson" sequence="10"/>
+    <menuitem id="menu_statusbar_lesson" name="Lessons" parent="menu_statusbar_lesson_root" action="action_statusbar_lesson" sequence="10"/>
+</odoo>
