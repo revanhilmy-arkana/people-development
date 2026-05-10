@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_study_lesson_tag_tree" model="ir.ui.view">
+        <field name="name">study.lesson.tag.tree</field>
+        <field name="model">study.lesson.tag</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_study_lesson_tag_form" model="ir.ui.view">
+        <field name="name">study.lesson.tag.form</field>
+        <field name="model">study.lesson.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_study_lesson_tag" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">study.lesson.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
