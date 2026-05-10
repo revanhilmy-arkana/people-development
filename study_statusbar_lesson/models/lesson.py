@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from odoo import api, fields, models
 
 class StatusbarLesson(models.Model):

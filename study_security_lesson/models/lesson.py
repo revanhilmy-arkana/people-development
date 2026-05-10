@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from odoo import fields, models, api
 
 class SecurityLesson(models.Model):
