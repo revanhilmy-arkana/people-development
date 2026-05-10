@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_views_tracking_tree" model="ir.ui.view">
+        <field name="name">study.views.tracking.tree</field>
+        <field name="model">study.views.tracking</field>
+        <field name="arch" type="xml">
+            <list string="Lessons">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_study_views_tracking_form" model="ir.ui.view">
+        <field name="name">study.views.tracking.form</field>
+        <field name="model">study.views.tracking</field>
+        <field name="arch" type="xml">
+            <form string="Lesson">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_study_views_tracking" model="ir.actions.act_window">
+        <field name="name">Views and Tracking</field>
+        <field name="res_model">study.views.tracking</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_study_views_tracking_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_study_views_tracking_form')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first lesson!
+            </p>
+        </field>
+    </record>
+</odoo>
