@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_notebook_lesson_form" model="ir.ui.view">
+        <field name="name">study.notebook.lesson.form</field>
+        <field name="model">study.notebook.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Notebook Lesson">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. My First Tabbed Record"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <field name="date_recorded"/>
+                    </group>
+
+                    <!-- THE NOTEBOOK (TABBED INTERFACE) -->
+                    <notebook>
+                        <!-- Tab 1 -->
+                        <page string="Description" name="page_description">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </page>
+
+                        <!-- Tab 2 -->
+                        <page string="Configuration" name="page_config">
+                            <group>
+                                <field name="active"/>
+                                <field name="sequence"/>
+                            </group>
+                        </page>
+
+                        <!-- Tab 3 -->
+                        <page string="Private Notes" name="page_notes">
+                            <field name="internal_notes" placeholder="These notes are private..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_notebook_lesson_list" model="ir.ui.view">
+        <field name="name">study.notebook.lesson.list</field>
+        <field name="model">study.notebook.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Notebook Lessons">
+                <field name="name"/>
+                <field name="date_recorded"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_study_notebook_lesson" model="ir.actions.act_window">
+        <field name="name">Notebook Lesson</field>
+        <field name="res_model">study.notebook.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
