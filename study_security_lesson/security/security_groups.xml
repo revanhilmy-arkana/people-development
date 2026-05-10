@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define a Category for our custom security groups -->
+    <record id="module_category_study_security" model="ir.module.category">
+        <field name="name">Study Security</field>
+        <field name="description">Helps you learn about Odoo security layers</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Basic User Group -->
+    <record id="group_study_security_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_study_security"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Manager Group (Inherits from User Group) -->
+    <record id="group_study_security_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_study_security"/>
+        <field name="implied_ids" eval="[(4, ref('group_study_security_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
