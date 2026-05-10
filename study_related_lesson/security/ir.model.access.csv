@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_study_related_student,study.related.student,model_study_related_student,base.group_user,1,1,1,1
+access_study_related_lesson,study.related.lesson,model_study_related_lesson,base.group_user,1,1,1,1
