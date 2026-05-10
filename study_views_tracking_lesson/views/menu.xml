@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_views_tracking_root"
+              name="Views &amp; Tracking"
+              sequence="20"/>
+
+    <menuitem id="menu_study_views_tracking"
+              name="Lessons"
+              parent="menu_study_views_tracking_root"
+              action="action_study_views_tracking"
+              sequence="10"/>
+    <menuitem id="menu_study_views_tracking_readonly"
+              name="Lessons (Read Only)"
+              parent="menu_study_views_tracking_root"
+              action="action_study_views_tracking_readonly"
+              sequence="20"/>
+</odoo>

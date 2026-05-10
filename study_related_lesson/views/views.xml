@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 1. Student Views -->
+    <record id="view_study_related_student_form" model="ir.ui.view">
+        <field name="name">study.related.student.form</field>
+        <field name="model">study.related.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_related_student_list" model="ir.ui.view">
+        <field name="name">study.related.student.list</field>
+        <field name="model">study.related.student</field>
+        <field name="arch" type="xml">
+            <list string="Students">
+                <field name="name"/>
+                <field name="email"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- 2. Lesson Views (With Related Fields) -->
+    <record id="view_study_related_lesson_form" model="ir.ui.view">
+        <field name="name">study.related.lesson.form</field>
+        <field name="model">study.related.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Lesson">
+                <sheet>
+                    <group>
+                        <group string="Basic Info">
+                            <field name="name"/>
+                            <field name="student_id"/>
+                        </group>
+                        <group string="Related Info (Auto-filled)">
+                            <field name="student_email"/>
+                            <field name="student_phone"/>
+                            <field name="student_name_stored"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_related_lesson_list" model="ir.ui.view">
+        <field name="name">study.related.lesson.list</field>
+        <field name="model">study.related.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Lessons">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="student_email"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_study_related_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">study.related.student</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_study_related_lesson" model="ir.actions.act_window">
+        <field name="name">Lessons</field>
+        <field name="res_model">study.related.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit the standard Partner (Contact) form view -->
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Use XPath to find the 'function' field (Job Position) and add our fields after it -->
+            <xpath expr="//field[@name='function']" position="after">
+                <field name="is_student"/>
+                <!-- Conditional visibility: only show rank if is_student is checked -->
+                <field name="student_rank" invisible="not is_student"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

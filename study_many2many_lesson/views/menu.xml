@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu Item with web_icon -->
+    <!-- The web_icon attribute uses the format "module_name,path_to_icon" to display an icon in the app switcher -->
+    <menuitem id="menu_study_m2m_root"
+              name="Study M2M"
+              sequence="10"
+              web_icon="study_many2many_lesson,static/description/icon.png"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_study_m2m_lessons"
+              name="Lessons"
+              parent="menu_study_m2m_root"
+              action="action_study_lesson_m2m"
+              sequence="10"/>
+
+    <menuitem id="menu_study_m2m_tags"
+              name="Tags"
+              parent="menu_study_m2m_root"
+              action="action_study_lesson_tag"
+              sequence="20"/>
+</odoo>

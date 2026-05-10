@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rule for Users: See only own records -->
+    <record id="rule_study_security_lesson_user" model="ir.rule">
+        <field name="name">Study Security: User see only own records</field>
+        <field name="model_id" ref="model_study_security_lesson"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_study_security_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Rule for Managers: See all records -->
+    <record id="rule_study_security_lesson_manager" model="ir.rule">
+        <field name="name">Study Security: Manager see all records</field>
+        <field name="model_id" ref="model_study_security_lesson"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_study_security_manager'))]"/>
+    </record>
+</odoo>

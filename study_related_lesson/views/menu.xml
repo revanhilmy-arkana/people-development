@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_related_root"
+              name="Related Lesson"
+              sequence="80"/>
+
+    <menuitem id="menu_study_related_student"
+              name="Students"
+              parent="menu_study_related_root"
+              action="action_study_related_student"
+              sequence="10"/>
+
+    <menuitem id="menu_study_related_lesson"
+              name="Lessons"
+              parent="menu_study_related_root"
+              action="action_study_related_lesson"
+              sequence="20"/>
+</odoo>

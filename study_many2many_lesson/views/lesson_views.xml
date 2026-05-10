@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_study_lesson_m2m_tree" model="ir.ui.view">
+        <field name="name">study.lesson.m2m.tree</field>
+        <field name="model">study.lesson.m2m</field>
+        <field name="arch" type="xml">
+            <!-- editable="bottom" allows adding/editing directly in tree view without opening form view -->
+            <list editable="bottom">
+                <!-- widget="handle" allows drag-and-drop reordering of rows -->
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_study_lesson_m2m_form" model="ir.ui.view">
+        <field name="name">study.lesson.m2m.form</field>
+        <field name="model">study.lesson.m2m</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_study_lesson_m2m" model="ir.actions.act_window">
+        <field name="name">Lessons (M2M)</field>
+        <field name="res_model">study.lesson.m2m</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

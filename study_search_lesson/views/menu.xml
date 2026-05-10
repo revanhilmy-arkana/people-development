@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_search_root"
+              name="Search Lesson"
+              sequence="50"/>
+
+    <menuitem id="menu_study_search_lesson"
+              name="Lessons"
+              parent="menu_study_search_root"
+              action="action_study_search_lesson"
+              sequence="10"/>
+</odoo>
