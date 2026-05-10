@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tambahkan field is_ppn di PO form -->
+    <record id="purchase_order_form_inherit_suqma_purchase" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.suqma.purchase</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="is_ppn" readonly="id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
