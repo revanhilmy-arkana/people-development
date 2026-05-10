@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Search View Definition -->
+    <record id="view_study_search_lesson_search" model="ir.ui.view">
+        <field name="name">study.search.lesson.search</field>
+        <field name="model">study.search.lesson</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- 1. Search Fields -->
+                <field name="name" string="Title" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="category"/>
+
+                <!-- 2. Custom Filters -->
+                <filter name="filter_high_priority" string="High Priority" domain="[('priority', '=', 'high')]"/>
+                <filter name="filter_external" string="External Category" domain="[('category', '=', 'external')]"/>
+                <separator/>
+                <filter name="filter_today" string="Created Today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+
+                <!-- 3. Group By -->
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_by_category" context="{'group_by': 'category'}"/>
+                    <filter string="Priority" name="group_by_priority" context="{'group_by': 'priority'}"/>
+                </group>
+
+                <!-- 4. Search Panel (The Sidebar) -->
+                <searchpanel>
+                    <field name="category" icon="fa-th-list" enable_counters="1" select="multi"/>
+                    <field name="priority" icon="fa-star" select="multi"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_study_search_lesson_list" model="ir.ui.view">
+        <field name="name">study.search.lesson.list</field>
+        <field name="model">study.search.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Search Lessons">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="priority" widget="badge" decoration-danger="priority == 'high'" decoration-warning="priority == 'medium'" decoration-info="priority == 'low'"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_study_search_lesson_form" model="ir.ui.view">
+        <field name="name">study.search.lesson.form</field>
+        <field name="model">study.search.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Search Lesson">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <field name="priority"/>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_study_search_lesson" model="ir.actions.act_window">
+        <field name="name">Search Lesson</field>
+        <field name="res_model">study.search.lesson</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_study_search_lesson_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create records to test the Search View and Panel!
+            </p>
+        </field>
+    </record>
+</odoo>
