@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_attributes_lesson_form" model="ir.ui.view">
+        <field name="name">study.attributes.lesson.form</field>
+        <field name="model">study.attributes.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Attributes Lesson">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,locked" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <!-- The 'name' field becomes READONLY once the state is 'locked' -->
+                            <field name="name" readonly="state == 'locked'"/>
+                            <field name="is_priority"/>
+                        </group>
+                        <group>
+                            <!-- The 'priority_reason' is:
+                                 - INVISIBLE if is_priority is false
+                                 - REQUIRED if is_priority is true -->
+                            <field name="priority_reason" 
+                                   invisible="not is_priority" 
+                                   required="is_priority"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_attributes_lesson_list" model="ir.ui.view">
+        <field name="name">study.attributes.lesson.list</field>
+        <field name="model">study.attributes.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Attributes Lessons">
+                <field name="name"/>
+                <field name="is_priority"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_study_attributes_lesson" model="ir.actions.act_window">
+        <field name="name">Attributes Lesson</field>
+        <field name="res_model">study.attributes.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
