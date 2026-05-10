@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from odoo import api, fields, models, _
 
 class HospitalPatient(models.Model):

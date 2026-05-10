@@ -37,16 +37,16 @@
         <field name="name">study.statusbar.lesson.tree</field>
         <field name="model">study.statusbar.lesson</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'in_progress'" decoration-success="state == 'done'" decoration-danger="state == 'cancel'"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="action_statusbar_lesson" model="ir.actions.act_window">
         <field name="name">Statusbar Lessons</field>
         <field name="res_model">study.statusbar.lesson</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

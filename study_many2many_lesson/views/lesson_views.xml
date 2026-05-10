@@ -6,13 +6,13 @@
         <field name="model">study.lesson.m2m</field>
         <field name="arch" type="xml">
             <!-- editable="bottom" allows adding/editing directly in tree view without opening form view -->
-            <tree editable="bottom">
+            <list editable="bottom">
                 <!-- widget="handle" allows drag-and-drop reordering of rows -->
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="description"/>
-            </tree>
+            </list>
         </field>
     </record>
 
