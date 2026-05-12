@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_compute_lesson_form" model="ir.ui.view">
+        <field name="name">study.compute.lesson.form</field>
+        <field name="model">study.compute.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Compute Lesson">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Enter a Title..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Text transformation">
+                            <field name="upper_name"/>
+                        </group>
+                        <group string="Math Calculation">
+                            <field name="price"/>
+                            <field name="tax"/>
+                            <field name="total"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_compute_lesson_list" model="ir.ui.view">
+        <field name="name">study.compute.lesson.list</field>
+        <field name="model">study.compute.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Compute Lessons">
+                <field name="name"/>
+                <field name="upper_name"/>
+                <field name="total" sum="Total Sum"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_study_compute_lesson" model="ir.actions.act_window">
+        <field name="name">Compute Lesson</field>
+        <field name="res_model">study.compute.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
