@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_compute_root"
+              name="Compute Lesson"
+              sequence="90"/>
+
+    <menuitem id="menu_study_compute_lesson"
+              name="Lessons"
+              parent="menu_study_compute_root"
+              action="action_study_compute_lesson"
+              sequence="10"/>
+</odoo>
