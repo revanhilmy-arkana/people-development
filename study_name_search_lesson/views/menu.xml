@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_name_search_root"
+              name="Name Search Lesson"
+              sequence="130"/>
+
+    <menuitem id="menu_study_name_search_target"
+              name="Targets"
+              parent="menu_study_name_search_root"
+              action="action_study_name_search_target"
+              sequence="10"/>
+
+    <menuitem id="menu_study_name_search_reference"
+              name="References"
+              parent="menu_study_name_search_root"
+              action="action_study_name_search_reference"
+              sequence="20"/>
+</odoo>
