@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 class ErrorLesson(models.Model):
     _name = 'study.error.lesson'
@@ -22,3 +22,11 @@ class ErrorLesson(models.Model):
         for rec in self:
             if rec.email and '@' not in rec.email:
                 raise ValidationError("Format Error! Please enter a valid email address containing an '@' symbol.")
+
+    # ACTION BUTTON: Triggered manually by clicking a button
+    def action_check_validation(self):
+        for rec in self:
+            if rec.name == 'Test' or rec.name == 'test':
+                # UserError is used for user actions/business flow blockers
+                raise UserError("Action Blocked! You cannot validate a student named 'Test'. Please enter a real name.")
+

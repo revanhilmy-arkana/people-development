@@ -5,6 +5,9 @@
         <field name="model">study.error.lesson</field>
         <field name="arch" type="xml">
             <form string="Error Lesson">
+                <header>
+                    <button name="action_check_validation" string="Validate Student" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="name"/>
