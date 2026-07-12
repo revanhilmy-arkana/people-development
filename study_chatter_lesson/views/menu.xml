@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_chatter_root"
+              name="Chatter Lesson"
+              sequence="140"/>
+
+    <menuitem id="menu_study_chatter_lesson"
+              name="Lessons"
+              parent="menu_study_chatter_root"
+              action="action_study_chatter_lesson"
+              sequence="10"/>
+</odoo>

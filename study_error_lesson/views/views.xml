@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_error_lesson_form" model="ir.ui.view">
+        <field name="name">study.error.lesson.form</field>
+        <field name="model">study.error.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Error Lesson">
+                <header>
+                    <button name="action_check_validation" string="Validate Student" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="email"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_error_lesson_list" model="ir.ui.view">
+        <field name="name">study.error.lesson.list</field>
+        <field name="model">study.error.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Error Lessons">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="email"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_study_error_lesson" model="ir.actions.act_window">
+        <field name="name">Error Lesson</field>
+        <field name="res_model">study.error.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

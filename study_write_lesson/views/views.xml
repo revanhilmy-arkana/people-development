@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_write_lesson_form" model="ir.ui.view">
+        <field name="name">study.write.lesson.form</field>
+        <field name="model">study.write.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Write Lesson">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,locked" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Enter Title..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Content">
+                            <field name="description"/>
+                        </group>
+                        <group string="Modification History (Auto-tracked)">
+                            <field name="last_editor"/>
+                            <field name="edit_count"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_write_lesson_list" model="ir.ui.view">
+        <field name="name">study.write.lesson.list</field>
+        <field name="model">study.write.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Write Lessons">
+                <field name="name"/>
+                <field name="state"/>
+                <field name="last_editor"/>
+                <field name="edit_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_study_write_lesson" model="ir.actions.act_window">
+        <field name="name">Write Lesson</field>
+        <field name="res_model">study.write.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

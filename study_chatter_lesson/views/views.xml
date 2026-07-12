@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_study_chatter_lesson_form" model="ir.ui.view">
+        <field name="name">study.chatter.lesson.form</field>
+        <field name="model">study.chatter.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Chatter Lesson">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,completed" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. Odoo 19 Chatter Architecture"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- MODERN ODOO 19 simplified single chatter tag! -->
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_study_chatter_lesson_list" model="ir.ui.view">
+        <field name="name">study.chatter.lesson.list</field>
+        <field name="model">study.chatter.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Chatter Lessons">
+                <field name="name"/>
+                <field name="responsible_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_study_chatter_lesson" model="ir.actions.act_window">
+        <field name="name">Chatter Lesson</field>
+        <field name="res_model">study.chatter.lesson</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

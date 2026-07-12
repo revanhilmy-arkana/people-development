@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_study_error_root"
+              name="Error Lesson"
+              sequence="120"/>
+
+    <menuitem id="menu_study_error_lesson"
+              name="Lessons"
+              parent="menu_study_error_root"
+              action="action_study_error_lesson"
+              sequence="10"/>
+</odoo>
